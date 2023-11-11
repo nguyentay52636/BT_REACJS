@@ -1,0 +1,65 @@
+body {
+background-image: url('../../public/glassesImage/background.jpg')
+
+}
+
+.header {
+    background-color: #0000008f;
+    text-align: center;
+}
+
+.header h1 {
+    color: #fff;
+}
+
+.preview-img {
+    position: relative;
+ 
+  ;
+}
+.col-md-2 img {
+border: 0.5px solid black;
+}
+.col-md-2 {
+margin-bottom: 30px;
+}
+.preview-text {
+    background-color: #fff;
+    position: absolute;
+    /* height: 100%; */
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.preview-text p {
+width: 250px;
+position: relative;
+background-color: beige;
+top: 73px;
+width: 330px;
+right: 330px;
+background-color: #da8b5386;
+color:white;
+font-weight: 600;
+}
+.preview-overlay {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.preview-overlay img {
+    position: relative;
+    right: 330px;
+    top: -15px;
+    width: 170px;
+}
+
+.selectedGlass {
+    filter: blur(20px);
+}
+
