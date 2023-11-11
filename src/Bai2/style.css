@@ -19,6 +19,7 @@ background-image: url('../../public/glassesImage/background.jpg')
 }
 .col-md-2 img {
 border: 0.5px solid black;
+height: 60px;
 }
 .col-md-2 {
 margin-bottom: 30px;

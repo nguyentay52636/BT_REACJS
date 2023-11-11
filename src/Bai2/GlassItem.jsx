@@ -12,7 +12,7 @@ export default function GlassItem({ glass, onSelect, selectedGlass }) {
         style={{ cursor: 'pointer' }}
         src={url}
         alt={name}
-        height={60}
+        height={100}
         onClick={() => onSelect(glass)}
       />
     </div>
