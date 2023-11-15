@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import TryGlassesApp from './Bai2/TryGlassesApp';
+
+import ShoeShop from './Bai3/ShoeShop';
+
 function App() {
   return (
     <div>
-      <TryGlassesApp />
+      <ShoeShop />
     </div>
   );
 }
