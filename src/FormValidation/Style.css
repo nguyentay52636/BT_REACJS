@@ -1,0 +1,11 @@
+.header {
+    background-color: black;
+    padding: 5px 0;
+}
+.header h1 {
+color: white ; 
+}
+.btn {
+margin: 15px 10px;
+}
+
