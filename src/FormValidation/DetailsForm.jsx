@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DetailsForm() {
+export default function DetailsForm({ students, onDelete, onEdit }) {
   return (
     <div>
       <div className="table-content">
@@ -14,7 +14,33 @@ export default function DetailsForm() {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {students.map((student) => {
+              const { id, hoten, sodienthoai, email } = student;
+              return (
+                <tr key={id}>
+                  <th>{id}</th>
+                  <th>{hoten}</th>
+                  <th>{sodienthoai}</th>
+                  <th>{email}</th>
+                  <th>
+                    <button
+                      className="btn btn-danger "
+                      onClick={() => onEdit(id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-success"
+                      onClick={() => onDelete(id)}
+                    >
+                      Delete
+                    </button>
+                  </th>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </div>

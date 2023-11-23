@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import './Style.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import DetailsForm from './DetailsForm';
 
-export default function Form() {
+export default function Form({ students, onAdd, onUpdate }) {
   const [values, setValues] = useState({
     masv: '',
     hoten: '',
@@ -16,11 +15,26 @@ export default function Form() {
     sodienthoai: '',
     email: '',
   });
+  const resetForm = () => {
+    setValues({
+      masv: '',
+      hoten: '',
+      sodienthoai: '',
+      email: '',
+    });
+  };
+  //state luu tru id
+  // const [nextId, setNextId] = useState(1);
 
   const handleSubmit = (e) => {
     let invalid = true;
     e.preventDefault();
-
+    if (values.id) {
+      onUpdate(values.id, values);
+    } else {
+      onAdd(values);
+      resetForm();
+    }
     for (let key in values) {
       invalid &= validateField(key, values[key]);
     }
@@ -83,6 +97,8 @@ export default function Form() {
     });
     return invalid;
   };
+  // handle add , edit , delete
+
   return (
     <div>
       <div className="header">
@@ -166,14 +182,17 @@ export default function Form() {
               </div>
             </div>
           </div>
-          <button className="btn btn-success" type="submit">
+          <button
+            className="btn btn-success"
+            type="submit"
+            onClick={() => onAdd}
+          >
             Them sinh vien
           </button>
         </form>
       </div>
       <hr />
       <br />
-      <DetailsForm />
     </div>
   );
 }

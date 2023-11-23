@@ -1,10 +1,10 @@
 import './App.css';
-import Form from './FormValidation/Form';
-
+import Management from './FormValidation/Management';
 function App() {
   return (
     <div>
-      <Form />
+      {/* <Form /> */}
+      <Management />
     </div>
   );
 }
