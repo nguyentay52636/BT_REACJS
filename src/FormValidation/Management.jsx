@@ -42,17 +42,18 @@ export default function Management() {
   //lay du lieu
   const handleSelectStudent = async (id) => {
     try {
-      let respone = await axios.post(`${urlApi}/${id}`);
-      setStudent(respone.data);
+      const { data } = await axios.get(`${urlApi}/${id}`);
+      setSeletedStudent(data);
     } catch (error) {
       console.log(error);
     }
   };
+
   //upadte
   const handleUpdateStudent = async (id, student) => {
     try {
-      await axios.put(`${urlApi}/${id}`, student);
-      fetchStudent();
+      let respone = await axios.put(`${urlApi}/${id}`, student);
+      fetchStudent(respone);
       alert('cap nhap thanh cong');
     } catch (error) {
       console.log(error);
@@ -70,6 +71,7 @@ export default function Management() {
         students={students}
         onDelete={hanhdledDelete}
         onEdit={handleSelectStudent}
+      
       />
     </div>
   );

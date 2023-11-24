@@ -1,31 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Style.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export default function Form({ students, onAdd, onUpdate }) {
-  const [values, setValues] = useState({
+  const valueEmpty = {
     masv: '',
     hoten: '',
     sodienthoai: '',
     email: '',
-  });
-  const [error, setError] = useState({
-    masv: '',
-    hoten: '',
-    sodienthoai: '',
-    email: '',
-  });
-  const resetForm = () => {
-    setValues({
-      masv: '',
-      hoten: '',
-      sodienthoai: '',
-      email: '',
-    });
   };
+  const [values, setValues] = useState(valueEmpty);
+  const [error, setError] = useState(valueEmpty);
+
   //state luu tru id
   // const [nextId, setNextId] = useState(1);
-
+  useEffect(() => {
+    if (!students) {
+      return;
+    } else {
+      setValues(students);
+    }
+  }, [students]);
   const handleSubmit = (e) => {
     let invalid = true;
     e.preventDefault();
@@ -33,7 +28,6 @@ export default function Form({ students, onAdd, onUpdate }) {
       onUpdate(values.id, values);
     } else {
       onAdd(values);
-      resetForm();
     }
     for (let key in values) {
       invalid &= validateField(key, values[key]);
