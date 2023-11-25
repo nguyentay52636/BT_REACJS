@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './Style.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-export default function Form({ students, onAdd, onUpdate }) {
+export default function Form({ students, onAdd, onUpdate,isUpdating  }) {
   const valueEmpty = {
     masv: '',
     hoten: '',
@@ -14,6 +14,10 @@ export default function Form({ students, onAdd, onUpdate }) {
 
   //state luu tru id
   // const [nextId, setNextId] = useState(1);
+  const resetForm = () => {
+    setValues({ ...valueEmpty });
+    setError({ ...valueEmpty });
+  };
   useEffect(() => {
     if (!students) {
       return;
@@ -22,18 +26,21 @@ export default function Form({ students, onAdd, onUpdate }) {
     }
   }, [students]);
   const handleSubmit = (e) => {
-    let invalid = true;
     e.preventDefault();
-    if (values.id) {
-      onUpdate(values.id, values);
-    } else {
-      onAdd(values);
-    }
+    let invalid = true;
     for (let key in values) {
       invalid &= validateField(key, values[key]);
     }
     if (!invalid) {
+      console.log(invalid);
       return;
+    }
+    if (isUpdating) {
+      onUpdate(values.masv, values);
+      resetForm()
+    } else {
+      onAdd(values);
+      resetForm();
     }
   };
   const handleChange = (e) => {
@@ -78,7 +85,7 @@ export default function Form({ students, onAdd, onUpdate }) {
         // const regexemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (isvalid) {
           formError.email = 'Vui lòng không để trống!';
-          return false;
+          invalid = false;
         } else {
           formError.email = '';
         }
@@ -92,7 +99,6 @@ export default function Form({ students, onAdd, onUpdate }) {
     return invalid;
   };
   // handle add , edit , delete
-
   return (
     <div>
       <div className="header">
@@ -176,13 +182,15 @@ export default function Form({ students, onAdd, onUpdate }) {
               </div>
             </div>
           </div>
-          <button
-            className="btn btn-success"
-            type="submit"
-            onClick={() => onAdd}
-          >
+          {isUpdating ? (
+            <button className="btn btn-info" type="submit">
+            Update
+          </button>
+          ) : (
+            <button className="btn btn-success" type="submit">
             Them sinh vien
           </button>
+          )}
         </form>
       </div>
       <hr />

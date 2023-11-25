@@ -16,23 +16,23 @@ export default function DetailsForm({ students, onDelete, onEdit }) {
           </thead>
           <tbody>
             {students.map((student) => {
-              const { id, hoten, sodienthoai, email } = student;
+              const { masv, hoten, sodienthoai, email } = student;
               return (
-                <tr key={id}>
-                  <th>{id}</th>
+                <tr key={masv}>
+                  <th>{masv}</th>
                   <th>{hoten}</th>
                   <th>{sodienthoai}</th>
                   <th>{email}</th>
                   <th>
                     <button
                       className="btn btn-danger "
-                      onClick={() => onEdit(id)}
+                      onClick={() => onEdit(masv)}
                     >
                       Edit
                     </button>
                     <button
                       className="btn btn-success"
-                      onClick={() => onDelete(id)}
+                      onClick={() => onDelete(masv)}
                     >
                       Delete
                     </button>
