@@ -25,13 +25,13 @@ export default function Management() {
   };
   useEffect(() => {
     fetchStudent();
-  }, [searchTerm]);
+  }, [debouceSearchTerm]);
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
     clearTimeout(timer.current);
     timer.current = setTimeout(() => {
-      setDeouceSearchTerm(event.target);
-    }, 2000);
+      setDeouceSearchTerm(event.target.value);
+    }, 300);
   };
   //them
   const handleAdd = async (student) => {
@@ -92,6 +92,7 @@ export default function Management() {
           placeholder="search by name"
           className="form-control"
           onChange={handleSearch}
+          value={searchTerm}
         />
       </div>
       <DetailsForm
