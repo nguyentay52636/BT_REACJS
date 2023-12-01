@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './Style.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-export default function Form({ students, onAdd, onUpdate,isUpdating  }) {
+export default function Form({ students, onAdd, onUpdate, isUpdating }) {
   const valueEmpty = {
     masv: '',
     hoten: '',
@@ -37,7 +37,7 @@ export default function Form({ students, onAdd, onUpdate,isUpdating  }) {
     }
     if (isUpdating) {
       onUpdate(values.masv, values);
-      resetForm()
+      resetForm();
     } else {
       onAdd(values);
       resetForm();
@@ -184,15 +184,17 @@ export default function Form({ students, onAdd, onUpdate,isUpdating  }) {
           </div>
           {isUpdating ? (
             <button className="btn btn-info" type="submit">
-            Update
-          </button>
+              Update
+            </button>
           ) : (
             <button className="btn btn-success" type="submit">
-            Them sinh vien
-          </button>
+              Them sinh vien
+            </button>
           )}
         </form>
       </div>
+
+      
       <hr />
       <br />
     </div>
