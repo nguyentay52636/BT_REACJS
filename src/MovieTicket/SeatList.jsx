@@ -14,7 +14,7 @@ export default function SeatList({ seats }) {
     <div>
       <h1 className="text-center text-warning mb-5">ĐẶT VÉ XEM PHIM</h1>
 
-      <h5 className=" text-center text-white">Màn hình</h5>
+      <h5 className=" text-center text-white d-block">Màn hình</h5>
       <div className="row">
         <div className="screen col-12 bg-warning p-4 mb-4 "></div>
         <div className="numberList">
