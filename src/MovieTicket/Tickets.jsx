@@ -63,7 +63,7 @@ export default function Tickets() {
         <tfoot>
           <tr>
             <td className="text-light">Tổng tiền</td>
-            <td className="text-warning">{totalPrice}$</td>
+            <td className="text-warning">{totalPrice}VND</td>
             <td></td>
           </tr>
         </tfoot>
