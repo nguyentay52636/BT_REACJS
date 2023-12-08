@@ -65,3 +65,21 @@ margin-left:-25px !important ;
 .content__btn {
     display: inline-block;
 }
+.col__number {
+
+position: absolute;
+left :260px ;
+top: 250px;
+padding: 20px 0 ; 
+
+}
+.listCol h5 {
+    font-size: 30px;
+}
+
+/* .col-1{
+position: relative;
+bottom: 
+300px;
+left:100px;
+} */

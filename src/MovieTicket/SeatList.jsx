@@ -21,7 +21,9 @@ export default function SeatList({ seats }) {
           {numbers.map((number) => {
             return <div className="number text-white">{number}</div>;
           })}
-          {/* {seats.map((seat) => {
+        </div>
+        <div className="col__number">
+          {seats.map((seat) => {
             return (
               <>
                 <div className="listCol">
@@ -29,9 +31,9 @@ export default function SeatList({ seats }) {
                 </div>
               </>
             );
-          })} */}
+          })}
         </div>
-        <div className=""></div>
+
         <div className="content__seat">
           {seats.map((row) => (
             <div key={row.row} className="row">
