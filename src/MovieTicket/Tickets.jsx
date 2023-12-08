@@ -48,7 +48,7 @@ export default function Tickets() {
           {selectedSeats.map((item) => (
             <tr key={item.name}>
               <td className="text-warning">{item.name}</td>
-              <td className="text-warning">{item.price}$</td>
+              <td className="text-warning">{item.price}VND</td>
               <td>
                 <button
                   className="btn btn-danger bg-danger"
