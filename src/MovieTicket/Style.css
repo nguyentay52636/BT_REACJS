@@ -54,7 +54,9 @@ margin-left: 25px;
 
 }
 .numberList {
-    margin-left:-15px;
+    margin-left:-20px;
+
+    position: relative;
 }
 .row h5 {
     display:inline-block;
@@ -67,19 +69,17 @@ margin-left:-25px !important ;
 }
 .col__number {
 
-position: absolute;
-left :260px ;
-top: 250px;
-padding: 20px 0 ; 
+position: relative;
+left: -50px;
 
 }
 .listCol h5 {
     font-size: 30px;
 }
 
-/* .col-1{
+.col-1{
 position: relative;
 bottom: 
-300px;
-left:100px;
-} */
+440px;
+left:5px;
+}
